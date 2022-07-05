@@ -35,3 +35,58 @@ spec:
   ports:
   - port: 5432
     targetPort: 5432
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgre
+spec:
+  selector:
+    app: postgre
+  ports:
+  - port: 5432
+    targetPort: 5432
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubenews
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubenews
+  template:
+    metadata:
+      labels:
+        app: kubenews
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+        prometheus.io/path: "/metrics"
+    spec:
+      containers:
+      - name: kubenews
+        image: brunobrazil/kube-news:v1
+        env:
+        - name: DB_DATABASE
+          value: ""
+        - name: DB_USERNAME
+          value: ""
+        - name: DB_PASSWORD
+          value: ""
+        - name: DB_HOST
+          value: ""
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-news
+spec:
+  selector:
+    app: kubenews
+  ports:
+  - port: 80
+    targetPort: 8080
+    nodePort: 30000
+  type: NodePort
