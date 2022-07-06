@@ -66,4 +66,4 @@ jobs:
         with:
           images: brunobrazil-kube-news:${{github.run_number}}
           manifests: |
-             images: deployment.yaml
+             images: home\camargo2022\aula\kube-news\k8sdeployment.yaml
