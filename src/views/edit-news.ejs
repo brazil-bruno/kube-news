@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
-  <title>Novo Post</title>
+  <title>New Post</title>
 
   <%- include('./partial/bootstrap-css'); %>
 
@@ -37,7 +37,7 @@
     <div class="container">
       <main>
         <div class="py-2 text-center">
-          <h2>Novo Post</h2>
+          <h2>New Post</h2>
         </div>
 
         <div class="row g-5">
@@ -46,33 +46,33 @@
             <form class="needs-validation" action="/post" method="post" novalidate>
               <div class="row g-3">
                 <div class="col-12">
-                  <label for="title" class="form-label">Título: <span class="text-muted"></span></label>
-                  <input type="text" class="form-control" id="title" name="title" placeholder="Título da Notícia"
+                  <label for="title" class="form-label">Title: <span class="text-muted"></span></label>
+                  <input type="text" class="form-control" id="title" name="title" placeholder="news title"
                     pattern=".{1,30}"
                     required>
                   <div class="invalid-feedback">
-                    Esse campo é obrigatório e deve ter no máximo 30 caracteres
+                    This field is mandatory and must be a maximum of 30 characters
                   </div>
                 </div>
                 <div class="col-12">
-                  <label for="resumo" class="form-label">Resumo: <span class="text-muted"></span></label>
-                  <input type="text" class="form-control" id="resumo" name="resumo" placeholder="Resumo da Notícia"
+                  <label for="resumo" class="form-label">Summary: <span class="text-muted"></span></label>
+                  <input type="text" class="form-control" id="resumo" name="resumo" placeholder="news summary"
                     pattern=".{1,100}"
                     required>
                   <div class="invalid-feedback">
-                    Esse campo é obrigatório e deve ter no máximo 50 caracteres
+                    This field is mandatory and must be a maximum of 50 characters
                   </div>
                 </div>
                 <div class="col-12">
-                  <label for="address" class="form-label">Notícia:</label>
+                  <label for="address" class="form-label">News:</label>
                   <textarea class="form-control" id="address" name="description" rows="20" required></textarea>
                   <div class="invalid-feedback">
-                    Esse campo é obrigatório
+                    This field is mandatory
                   </div>
                 </div>
               </div>
               <br />
-              <button class="w-100 btn btn-primary btn-lg btn-dark" type="submit">Salvar</button>
+              <button class="w-100 btn btn-primary btn-lg btn-dark" type="submit">Save</button>
             </form>
           </div>
         </div>
