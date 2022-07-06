@@ -19,22 +19,11 @@ spec:
             - containerPort: 5432
           env:
           - name: POSTGRES_PASSWORD
-            value: ""
+            value: "kubenews"
           - name: POSTGRES_USER
-            value: ""
+            value: "kubenews"
           - name: POSTGRES_DB
-            value: ""
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: postgre
-spec:
-  selector:
-    app: postgre
-  ports:
-  - port: 5432
-    targetPort: 5432
+            value: "kubenews"
 ---
 apiVersion: v1
 kind: Service
@@ -60,23 +49,19 @@ spec:
     metadata:
       labels:
         app: kubenews
-      annotations:
-        prometheus.io/scrape: "true"
-        prometheus.io/port: "8080"
-        prometheus.io/path: "/metrics"
     spec:
       containers:
       - name: kubenews
         image: brunobrazil/kube-news:v1
         env:
         - name: DB_DATABASE
-          value: ""
+          value: "kubenews"
         - name: DB_USERNAME
-          value: ""
+          value: "kubenews"
         - name: DB_PASSWORD
-          value: ""
+          value: "kubenews"
         - name: DB_HOST
-          value: ""
+          value: "postgre"
 ---
 apiVersion: v1
 kind: Service
@@ -89,4 +74,4 @@ spec:
   - port: 80
     targetPort: 8080
     nodePort: 30000
-  type: NodePort
+  type: LoadBalancer
