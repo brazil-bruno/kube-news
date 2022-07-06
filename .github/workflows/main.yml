@@ -40,7 +40,7 @@ jobs:
           context: ./src
           push: true
           tags: |
-            brunobrazil/kube-news:latest
+            brunobrazil/kube-news:v2
             brunobrazil/kube-news:${{github.run_number}}
   CD:
     runs-on: ubuntu-latest
