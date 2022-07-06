@@ -66,4 +66,4 @@ jobs:
         with:
           images: brunobrazil-kube-news:${{github.run_number}}
           manifests: |
-          image: k8s/deployment.yaml
+              k8s/deployment.yaml
